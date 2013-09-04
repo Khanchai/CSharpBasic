@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,8 +11,6 @@ namespace CSharpBasic
     {
         public static void InputAnimalsAndPrint()
         {
-            //var str = new StringBuilder();
-            // use List insted of StringBuilder
             var listStr = new List<string>();
 
             for (;;)
@@ -25,7 +24,6 @@ namespace CSharpBasic
                 }
                 listStr.Add(name);
             }
-
             Console.WriteLine("Output Animal's Name : " +string.Join(" ",listStr));
             Console.ReadKey();
         }
@@ -33,9 +31,28 @@ namespace CSharpBasic
 
     class Program
     {
-        private static void Main(string[] args)
+        static void Main(string[] args)
         {
-            Practice.InputAnimalsAndPrint();
+            var lst = new List<Animal>();
+            for(;;)
+            {
+                Console.WriteLine("Input Animal's Name (if you want exist, input exit)");
+                Console.Write("> ");
+                var a = Console.ReadLine();
+                
+                if (a != "exit")
+                {
+                    var animal = new Animal(a);
+                    lst.Add(animal);
+                }
+                else
+                {
+                    break;
+                }
+
+            }
+            Console.WriteLine("Output Animal's Name : " + string.Join(" ", lst));
+            Console.ReadKey();
         }
     }
 
@@ -45,7 +62,7 @@ namespace CSharpBasic
 
         public Animal(string name)
         {
-            Name += name;
+            Name = name;
         }
 
         public override string ToString()
