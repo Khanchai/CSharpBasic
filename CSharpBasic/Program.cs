@@ -11,7 +11,8 @@ namespace CSharpBasic
         public static void InputAnimalsAndPrint()
         {
             var str = new StringBuilder();
-            while (true)
+
+            for (;;)
             {
                 Console.WriteLine("Input Animal's Name (if you want exist, input exit)");
                 Console.Write("> ");
@@ -21,8 +22,8 @@ namespace CSharpBasic
                     break;
                 }
                 str.Append(name + " ");
-
             }
+            
             Console.WriteLine("Output Animal's Name : " + str.ToString().Trim());
             Console.ReadKey();
         }
