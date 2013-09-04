@@ -10,7 +10,9 @@ namespace CSharpBasic
     {
         public static void InputAnimalsAndPrint()
         {
-            var str = new StringBuilder();
+            //var str = new StringBuilder();
+            // use List insted of StringBuilder
+            var listStr = new List<string>();
 
             for (;;)
             {
@@ -21,10 +23,10 @@ namespace CSharpBasic
                 {
                     break;
                 }
-                str.Append(name + " ");
+                listStr.Add(name);
             }
-            
-            Console.WriteLine("Output Animal's Name : " + str.ToString().Trim());
+
+            Console.WriteLine("Output Animal's Name : " +string.Join(" ",listStr));
             Console.ReadKey();
         }
     }
